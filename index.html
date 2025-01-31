@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Tracker Exercise - HashMap Practice</title>
+    <style>
+        /* Syntax highlighting */
+        .keyword { color: #0033B3; }
+        .type { color: #087990; }
+        .string { color: #067D17; }
+        .comment { color: #8C8C8C; font-style: italic; }
+        .number { color: #1750EB; }
+        .method { color: #00627A; }
+        
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #1a1a1a;
+        }
+        
+        pre {
+            background: #f5f5f5;
+            padding: 1rem;
+            overflow-x: auto;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        
+        h1, h2, h3 {
+            color: #2c5282;
+            margin-top: 2rem;
+        }
+        
+        .step {
+            background: #f8f9fa;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #2c5282;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .hint {
+            background: #ebf8ff;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .challenge {
+            background: #f0fff4;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 0.5rem;
+            }
+            
+            pre {
+                padding: 0.5rem;
+            }
+            
+            .step, .hint, .challenge {
+                padding: 0.5rem;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Book Tracker Exercise - HashMap Practice</h1>
+    
+    <div class="step">
+        <h2>Step 1: Understanding the Book Class</h2>
+        <p>First, we'll create a Book class to represent each book in our system. Here's the class structure:</p>
+        <pre>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="type">Book</span> {
+    <span class="keyword">private</span> <span class="type">String</span> isbn;
+    <span class="keyword">private</span> <span class="type">String</span> title;
+    <span class="keyword">private</span> <span class="type">String</span> author;
+    <span class="keyword">private</span> <span class="type">int</span> copiesAvailable;
+
+    <span class="comment">// TODO: Implement the constructor</span>
+    <span class="keyword">public</span> <span class="method">Book</span>(<span class="type">String</span> isbn, <span class="type">String</span> title, <span class="type">String</span> author, <span class="type">int</span> copiesAvailable) {
+        <span class="comment">// Your code here</span>
+    }
+
+    <span class="comment">// TODO: Implement getters and setters</span>
+    <span class="keyword">public</span> <span class="type">String</span> <span class="method">getIsbn</span>() {
+        <span class="comment">// Your code here</span>
+    }
+    
+    <span class="comment">// Implement remaining getters and setters</span>
+}</pre>
+    </div>
+
+    <div class="hint">
+        <h3>💡 Hint for Book Class</h3>
+        <ul>
+            <li>Remember to initialize all fields in the constructor</li>
+            <li>Getters should return the field values</li>
+            <li>The setCopiesAvailable method will be important for borrowing/returning books</li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <h2>Step 2: Creating the BookTracker Class</h2>
+        <p>Now, let's implement the main BookTracker class that will use a HashMap to store and manage books:</p>
+        <pre>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="type">BookTracker</span> {
+    <span class="keyword">private</span> <span class="type">HashMap</span>&lt;<span class="type">String</span>, <span class="type">Book</span>&gt; books;
+
+    <span class="comment">// TODO: Implement constructor</span>
+    <span class="keyword">public</span> <span class="method">BookTracker</span>() {
+        <span class="comment">// Your code here</span>
+    }
+
+    <span class="comment">// TODO: Implement these methods</span>
+    <span class="keyword">public</span> <span class="type">void</span> <span class="method">addBook</span>(<span class="type">Book</span> book) {
+        <span class="comment">// Your code here</span>
+    }
+
+    <span class="keyword">public</span> <span class="type">boolean</span> <span class="method">borrowBook</span>(<span class="type">String</span> isbn) {
+        <span class="comment">// Your code here</span>
+    }
+
+    <span class="keyword">public</span> <span class="type">boolean</span> <span class="method">returnBook</span>(<span class="type">String</span> isbn) {
+        <span class="comment">// Your code here</span>
+    }
+
+    <span class="keyword">public</span> <span class="type">List</span>&lt;<span class="type">Book</span>&gt; <span class="method">getAvailableBooks</span>() {
+        <span class="comment">// Your code here</span>
+    }
+
+    <span class="keyword">public</span> <span class="type">List</span>&lt;<span class="type">Book</span>&gt; <span class="method">findBooksByAuthor</span>(<span class="type">String</span> author) {
+        <span class="comment">// Your code here</span>
+    }
+}</pre>
+    </div>
+
+    <div class="hint">
+        <h3>💡 Method Implementation Tips</h3>
+        <ul>
+            <li><strong>addBook:</strong> Use HashMap's put() method</li>
+            <li><strong>borrowBook:</strong> Check if book exists and has available copies</li>
+            <li><strong>returnBook:</strong> Increment available copies if book exists</li>
+            <li><strong>getAvailableBooks:</strong> Use HashMap's values() method and filter</li>
+            <li><strong>findBooksByAuthor:</strong> Iterate through values and check author</li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <h2>Step 3: Testing Your Implementation</h2>
+        <p>Here's a template for testing your BookTracker implementation:</p>
+        <pre>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="type">Main</span> {
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+        <span class="comment">// Create a new BookTracker</span>
+        <span class="type">BookTracker</span> library = <span class="keyword">new</span> <span class="type">BookTracker</span>();
+
+        <span class="comment">// Add some test books</span>
+        <span class="type">Book</span> book1 = <span class="keyword">new</span> <span class="type">Book</span>(<span class="string">"123"</span>, <span class="string">"Java Programming"</span>, <span class="string">"John Smith"</span>, <span class="number">3</span>);
+        <span class="type">Book</span> book2 = <span class="keyword">new</span> <span class="type">Book</span>(<span class="string">"456"</span>, <span class="string">"Data Structures"</span>, <span class="string">"John Smith"</span>, <span class="number">2</span>);
+        <span class="type">Book</span> book3 = <span class="keyword">new</span> <span class="type">Book</span>(<span class="string">"789"</span>, <span class="string">"Python Basics"</span>, <span class="string">"Jane Doe"</span>, <span class="number">1</span>);
+
+        <span class="comment">// TODO: Test each method</span>
+        <span class="comment">// 1. Add books</span>
+        <span class="comment">// 2. Try borrowing a book</span>
+        <span class="comment">// 3. Check available books</span>
+        <span class="comment">// 4. Find books by author</span>
+        <span class="comment">// 5. Return a book</span>
+    }
+}</pre>
+    </div>
+
+    <div class="challenge">
+        <h2>🌟 Bonus Challenges</h2>
+        <p>Once you've completed the basic implementation, try these extensions:</p>
+        <ol>
+            <li>Add ISBN validation (check format)</li>
+            <li>Implement a method to find all books with 0 copies available</li>
+            <li>Add a method to calculate the total number of copies across all books</li>
+            <li>Implement case-insensitive author search</li>
+        </ol>
+    </div>
+
+    <div class="hint">
+        <h3>Common Pitfalls to Avoid</h3>
+        <ul>
+            <li>Don't forget to handle null cases when searching for books</li>
+            <li>Remember to check copiesAvailable before allowing borrowing</li>
+            <li>Make sure to return false/null when operations can't be completed</li>
+            <li>Be careful with object references when returning lists</li>
+        </ul>
+    </div>
+</body>
+</html>
